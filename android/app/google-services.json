@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "771624550640",
+    "project_id": "junt-271122",
+    "storage_bucket": "junt-271122.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771624550640:android:4221ab6d0806737a3ec235",
+        "android_client_info": {
+          "package_name": "app.junt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771624550640-soenktmsq4kkrflt00hseeu063psquhv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.junt",
+            "certificate_hash": "de08cf7f3bbb1f3630c7763c9b7736c2e3925102"
+          }
+        },
+        {
+          "client_id": "771624550640-th12ongnuoordu32f98hrk9ghngbjg2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCLSbLGAzSoQ0pk3jN_7Vg6PWa6fmgMfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771624550640-th12ongnuoordu32f98hrk9ghngbjg2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

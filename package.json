@@ -1,32 +1,114 @@
 {
-  "name": "smartirrigation",
-  "version": "1.0.0",
+  "name": "Smart-Irrigation",
+  "version": "0.0.1",
+  "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      [
+        "eslint --fix",
+        "git add"
+      ]
+    ]
+  },
   "scripts": {
-    "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "start": "react-native start",
+    "linter": "eslint 'src/**/*.ts'",
+    "prettier": "prettier --write 'src/**/*.ts'",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "expo": "~43.0.0",
-    "expo-status-bar": "~1.1.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "0.64.2",
-    "react-native-web": "0.17.1",
-    "expo-splash-screen": "~0.13.3",
-    "expo-updates": "~0.10.5",
-    "react-native-gesture-handler": "~1.10.2",
-    "react-native-reanimated": "~2.2.0",
-    "react-native-safe-area-context": "3.3.2",
-    "react-native-screens": "~3.8.0"
+    "@react-native-async-storage/async-storage": "^1.15.13",
+    "@react-native-community/datetimepicker": "^5.1.0",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/bottom-tabs": "^6.0.9",
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native-stack": "^6.2.5",
+    "@react-navigation/stack": "^6.0.11",
+    "@sentry/react-native": "^3.2.13",
+    "@types/react-native-star-rating": "^1.1.2",
+    "@types/react-native-vector-icons": "^6.4.10",
+    "axios": "^0.24.0",
+    "crypto": "^1.0.1",
+    "date-fns": "^2.27.0",
+    "expo": ">=44.0.0-0 <45.0.0",
+    "expo-secure-store": "~11.0.3",
+    "expo-splash-screen": "~0.13.5",
+    "expo-updates": "^0.11.6",
+    "joi": "^17.6.0",
+    "moment-timezone": "^0.5.34",
+    "react": "17.0.2",
+    "react-native": "0.66.3",
+    "react-native-animatable": "^1.3.3",
+    "react-native-appearance": "0.3.0",
+    "react-native-device-info": "^8.4.9",
+    "react-native-dotenv": "^3.3.0",
+    "react-native-dropdown-picker": "^5.2.3",
+    "react-native-fast-image": "^8.5.11",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-keyboard-aware-scrollview": "^2.1.0",
+    "react-native-linear-gradient": "^2.5.6",
+    "react-native-masked-text": "^1.13.0",
+    "react-native-modal": "^13.0.0",
+    "react-native-modal-datetime-picker": "^9.1.0",
+    "react-native-progress": "^5.0.0",
+    "react-native-purchases": "^4.5.1",
+    "react-native-radial-gradient": "^1.0.9",
+    "react-native-ratings": "^8.1.0",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.9.0",
+    "react-native-select-dropdown": "^1.5.0",
+    "react-native-shadow-2": "^5.1.2",
+    "react-native-shimmer": "^0.6.0",
+    "react-native-star-rating": "^1.1.0",
+    "react-native-svg": "^12.1.1",
+    "react-native-vector-icons": "^9.0.0",
+    "react-query": "^3.34.0",
+    "react-select": "^5.2.1",
+    "svg": "^0.1.0",
+    "victory-native": "^36.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@types/react": "~17.0.21",
-    "@types/react-native": "~0.64.12",
-    "typescript": "~4.3.5"
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/react-native": "^0.66.4",
+    "@types/react-native-dotenv": "^0.2.0",
+    "@types/react-test-renderer": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.29.4",
+    "husky": "^7.0.4",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "prettier": "^2.6.2",
+    "react-test-renderer": "17.0.2",
+    "typescript": "^4.4.4"
   },
-  "private": true
+  "resolutions": {
+    "@types/react": "^17"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
 }

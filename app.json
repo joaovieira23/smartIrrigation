@@ -1,34 +1,22 @@
 {
   "expo": {
-    "name": "smartIrrigation",
-    "slug": "smartIrrigation",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashscreen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#181918"
     },
+    "name": "junt",
+    "slug": "junt",
+    "sdkVersion": "38.0.0",
     "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.smartirrigation"
+      "fallbackToCacheTimeout": 60000,
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
       "package": "com.smartirrigation"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
-  }
+  },
+  "name": "junt",
+  "displayName": "junt"
 }
