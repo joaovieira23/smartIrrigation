@@ -72,7 +72,6 @@ class AuthController {
 		}
 	}
 
-<<<<<<< HEAD
 	async createAccount({ email, password, name }: CreateAccountParameters) {
 		try {
 			const { data } = await api.post<
@@ -90,41 +89,19 @@ class AuthController {
 				const setInStorage = isSecureStoreAvailable ? SecureStore.setItemAsync : AsyncStorage.setItem;
 
 				await setInStorage('id-token', data.token);
-=======
-	async createAccount({ name, email, password }: CreateAccountParameters) {
-		const { data } = await api.post<
-			AuthenticationResponse,
-			AxiosResponse<AuthenticationResponse>,
-			CreateAccountParameters
-		>('/v1/auth/users', {
-			name,
-			email,
-			password,
-		});
 
-		console.warn('data', data)
+				await setInStorage('refresh-token', data.refreshToken);
+				await setInStorage('id-token', data.idToken);
 
-		if (data.registered) {
-			const isSecureStoreAvailable = await SecureStore.isAvailableAsync();
-			const setInStorage = isSecureStoreAvailable ? SecureStore.setItemAsync : AsyncStorage.setItem;
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
+				await this.updateApiInstance();
 
-			await setInStorage('refresh-token', data.refreshToken);
-			await setInStorage('id-token', data.idToken);
-
-			await this.updateApiInstance();
-
-<<<<<<< HEAD
 			}
-=======
-			this.updateLoggedStatus(data);
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
 
-			await AnalyticsController.setUserId(data.localId);
-			await AnalyticsController.logEvent('user_created', { id: data.localId });
+			return data;
+		} catch (e) {
+			console.warn(e);
 		}
 
-		return data;
 	}
 
 	async getIdToken() {

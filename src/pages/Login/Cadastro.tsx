@@ -68,40 +68,10 @@ export default function Cadastro() {
     },
   } = useTheme();
 
-<<<<<<< HEAD
   async function signUp(data: SignUpFormData) {
 
     try {
       setLoading(true);
-=======
-  async function
-    signUp(data: SignUpFormData) {
-    try {
-      setLoading(true);
-
-      const schema = Yup.object().shape({
-        name: Yup.string().required('Nome obrigatório'),
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('Digite um e-mail válido'),
-        password: Yup.string().min(6, 'No mínimo 6 dígitos').required().test(
-          "regex",
-          "A senha deve ter no mínimo 8 caracteres e ter 1 letra maiúscula, 1 número e 1 letra minúscula",
-          (val: any) => {
-            const regExp = new RegExp('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$');
-
-            !regExp.test(val) && setErroRequisitosDaSenha(true);
-
-            return regExp.test(val);
-          }
-        )
-
-      });
-
-      await schema.validate(data, {
-        abortEarly: false,
-      });
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
 
       await AuthController.createAccount(data);
 

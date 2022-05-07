@@ -68,7 +68,6 @@ function CardTotalHojeSkeleton() {
 }
 
 function CardTotalHoje(props: Props) {
-<<<<<<< HEAD
 	const { type, titulo, dispositivo } = props;
 	const { date } = useMonthSelected();
 	const [isLoadingMonth, setIsLoadingMonth] = useState(false);
@@ -144,123 +143,6 @@ function CardTotalHoje(props: Props) {
 			</Card>
 		</View>
 	);
-=======
-  const { valor, loading } = props;
-  const { date } = useMonthSelected();
-  const [isLoadingMonth, setIsLoadingMonth] = useState(false);
-
-  const { data: budgets } = useQuery('budgets', BudgetController.getBudgets);
-  const currentBudget = budgets?.length ? budgets[0] : null;
-
-  const { data: summary, isLoading, refetch } = useQuery(['summary', { month: date }], async () => {
-    const data = await SummaryController.getSummary({ budgetId: currentBudget?.id, date: format(date, 'yyyy-MM') });
-    return data;
-  }, {
-    enabled: Boolean(currentBudget)
-  });
-
-
-  useEffect(() => {
-    setIsLoadingMonth(true);
-    refetch();
-  }, [date])
-
-
-  const {
-    cores: {
-      destaque100,
-    },
-  } = useTheme();
-
-  if ((!valor || valor === 0) && loading && isLoading) {
-    return <CardTotalHojeSkeleton />;
-  }
-
-  const { width } = Dimensions.get('screen');
-
-  return (
-    <View
-      style={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 8,
-        width: '100%',
-      }}
-    >
-      <Card
-        style={{
-          width: width - 32,
-          borderRadius: 5,
-        }}
-      >
-        <View style={{ paddingVertical: 8, paddingHorizontal: 16 }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-
-            <Text
-              fonte="Poppins-Medium"
-              subtexto
-              h2
-              style={{
-                includeFontPadding: false,
-                paddingTop: 5,
-              }}
-            >
-              Visão Geral
-            </Text>
-
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-
-            <View style={{ marginVertical: 12, display: 'flex', justifyContent: 'center' }} >
-              <GraficoHome
-                loadingChangeDate={isLoadingMonth}
-                loading={isLoading}
-                status={summary?.result >= 0 ?
-                  'Positivo' : summary?.result < 0
-                    ? 'Negativo'
-                    : 'Neutro'}
-                disponivel={summary?.result}
-                dadosAtivos={[{ "valorMaisRecente": 10 }]}
-              />
-              <Text
-                h5
-                fonte={'Poppins-Medium'}
-                style={{
-                  textAlign: 'center', color: summary?.result < 0
-                    ? 'rgba(228, 12, 10, 1)'
-                    : destaque100
-                }}>
-                {summary?.result < 0
-                  ? 'Não está conseguindo \njuntar neste mês'
-                  : `Está juntando \n${formataMoeda(summary?.result)}`}
-              </Text>
-            </View>
-            <View style={{ margin: 16 }}>
-              <View style={{ flexDirection: 'row' }}>
-                <Icon style={{ marginRight: 4 }} name={'plus-circle-outline'} size={24} />
-                <View style={{ flexDirection: 'column', marginBottom: 16 }}>
-                  <Text fonte={'Poppins-Medium'} >Você recebeu</Text>
-                  <Text fonte={'Poppins-Medium'}>{summary?.incomes ? formataMoeda(summary?.incomes) : formataMoeda(0)}</Text>
-                </View>
-              </View>
-
-              <View style={{ flexDirection: 'row' }}>
-                <Icon style={{ marginRight: 4 }} name={'minus-circle-outline'} size={24} />
-                <View style={{ flexDirection: 'column', marginBottom: 16 }}>
-                  <Text fonte={'Poppins-Medium'} >Você gastou</Text>
-                  <Text fonte={'Poppins-Medium'}>{formataMoeda(summary?.expenses)}</Text>
-                </View>
-              </View>
-
-              <Status status={summary?.result > 0 ? 'Positivo' : summary?.result < 0 ? 'Negativo' : 'Neutro'} />
-            </View>
-          </View>
-
-        </View>
-      </Card>
-    </View>
-  );
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
 }
 
 export default CardTotalHoje;

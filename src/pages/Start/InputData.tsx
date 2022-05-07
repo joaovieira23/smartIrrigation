@@ -8,12 +8,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../../components/Button';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import BudgetController, { Budget } from '../../controllers/Budget.controller';
-<<<<<<< HEAD
-=======
-import Analytics from '../../controllers/Analytics.controller';
-//@ts-ignore
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
 import { StackNavigationProp } from '@react-navigation/stack';
 import { InputBudgetSkeleton } from './Skeleton';
 import { useMutation, useQuery } from 'react-query';

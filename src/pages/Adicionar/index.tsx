@@ -39,50 +39,19 @@ export default function Adicionar() {
     async () => {
       setLoading(true);
 
-<<<<<<< HEAD
       return await TransactionController.createTransaction({
         name: deviceName.value,
         device_id: deviceName.value,
         description: descricao.value
       });
-=======
-      const transaction = {
-        budget: currentBudget?.id,
-        // category: tipoTransacao && valorDaCategoria.value,
-        date: format(parse(data.value, 'dd/MM/yyyy', new Date()), 'yyyy-MM'),
-        type: tipoTransacao === 'Despesa' ? 'EXPENSE' : 'INCOME',
-        name: descricao.value,
-        value: valor.value,
-      } as CreateTransactionParameters
-
-      if (tipoTransacao === 'Despesa') transaction.category = valorDaCategoria.value
-
-      return TransactionController.createTransaction(transaction);
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
     },
     {
       onSuccess: (res) => {
-        Alert.alert('Sucesso', 'Transação adicionada com sucesso!')
-        setLoading(false);
-<<<<<<< HEAD
         Alert.alert('Sucesso', 'Device cadastrado com sucesso!')
         queryClient.invalidateQueries('devices');
 
         //@ts-ignore
         queryClient.setQueryData('devices', (data) => [...data, res])
-=======
-
-        Analytics.logEvent('ADICIONOU_TRANSACAO');
-
-        if (valorDaCategoria.value.length <= 1) {
-          setCategoriaError(true);
-          return;
-        }
-
-        queryClient.invalidateQueries('summary');
-
-        queryClient.setQueryData(['transaction', { budget: currentBudget?.id, month: date }], (data) => [...data, res])
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
       },
     }
   );
@@ -121,47 +90,13 @@ export default function Adicionar() {
               onFocus={() => descricao.setFocus(true)}
               onBlur={() => descricao.setFocus(false)}
             />
-<<<<<<< HEAD
-=======
-
-            <DatePicker
-              value={data.value}
-              label={'Data'}
-              backgroundColor={'#FFFFFF'}
-              onChangeText={(val) => {
-                data.setValue(val);
-                data.setTouched(true);
-              }}
-              error={data.error ? 'Data Inválida' : undefined}
-            />
-
-            {tipoTransacao === 'Despesa' && <View style={{ alignItems: 'center', marginTop: 16 }}>
-              <DropDownPicker
-                placeholder={'Defina a categoria'}
-                textStyle={{
-                  fontFamily: 'Poppins-Medium'
-                }}
-                open={open}
-                value={valorDaCategoria.value}
-                //@ts-ignore
-                items={categoriasQuePossui}
-                setOpen={setOpen}
-                setValue={(e) => {
-                  valorDaCategoria.setValue(e)
-                  setCategoriaError(false)
-                }}
-              />
-              {categoriaError && <Text fonte="Poppins-Medium" style={{ color: erro }}>Selecione uma categoria</Text>}
-            </View>
-            }
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
-          </View>
+          </View >
 
           <View style={{ alignItems: 'center', marginBottom: 16 }}>
             <Button loading={mutation.isLoading} onPress={() => mutation.mutate()} label="Criar Dispositivo" />
           </View>
-        </View>
-      </KeyboardAwareScrollView>
-    </Screen>
+        </View >
+      </KeyboardAwareScrollView >
+    </Screen >
   );
 }

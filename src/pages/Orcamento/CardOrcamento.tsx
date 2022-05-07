@@ -4,13 +4,8 @@ import Card from '../../components/Card';
 import Text from '../../components/Text';
 import Touchable from '../../components/Touchable';
 import Placeholder from '../../components/Placeholder';
-import { useMonthSelected } from '../../context/MonthSelected'
-import { format } from 'date-fns';
-import * as Progress from 'react-native-progress';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import useTheme from '../../hooks/useTheme';
 import BudgetController from '../../controllers/Budget.controller'
-import SummaryController from '../../controllers/Summary.controller'
 import { useQuery } from 'react-query';
 
 interface Props {
@@ -66,38 +61,13 @@ function CardTotalHojeSkeleton() {
 }
 
 function CardTotalHoje(props: Props) {
-<<<<<<< HEAD
   const { data: devices, isLoading } = useQuery('devices', BudgetController.getDevices);
   //@ts-ignore
   const { width } = Dimensions.get('screen');
 
   if (isLoading || !devices.data) {
-=======
-  const { date } = useMonthSelected();
-  const { data: budgets, isLoading } = useQuery('budgets', BudgetController.getBudgets);
-  const currentBudget = budgets[0];
-
-  const { data: summary } = useQuery(['summary', { month: date }], async () => {
-    const data = await SummaryController.getSummary({ budgetId: currentBudget?.id, date: format(date, 'yyyy-MM') });
-    return data;
-  }, {
-    enabled: Boolean(currentBudget)
-  });
-
-  const { width } = Dimensions.get('screen');
-
-  const {
-    cores: {
-      secundaria,
-      indicadorNegativo,
-      indicadorNeutro
-    },
-  } = useTheme();
-
-  if (isLoading) {
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
     return <CardTotalHojeSkeleton />;
-  };
+  }
 
   return (
     <View
@@ -116,22 +86,8 @@ function CardTotalHoje(props: Props) {
       >
         <Touchable onPress={props.onPress}>
           <View style={{ paddingVertical: 8, paddingHorizontal: 16 }}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 16 }}>
-              <View>
-                <Text
-                  fonte="Poppins-Medium"
-                  subtexto
-                  h4
-                  style={{
-                    includeFontPadding: false,
-                    color: 'rgba(83, 153, 28, 1)',
-                    paddingTop: 5,
-                  }}
-                >
-                  Renda Mensal
-                </Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
 
-<<<<<<< HEAD
               <Text
                 fonte="Poppins-Medium"
                 subtexto
@@ -169,36 +125,8 @@ function CardTotalHoje(props: Props) {
                     {devices.data.amountActive} disp.
                   </Text>
                 </View>
-=======
-                <Text fonte="Poppins-Medium" enfase h3>
-                  {formataMoeda(currentBudget?.salary)}
-                </Text>
               </View>
-              <View style={{ height: '100%', width: 1, backgroundColor: '#909090' }}></View>
-              <View>
-                <Text
-                  fonte="Poppins-Medium"
-                  subtexto
-                  h4
-                  style={{
-                    includeFontPadding: false,
-                    paddingTop: 5,
-                    color: 'rgba(83, 153, 28, 1)'
-                  }}
-                >
-                  Quero juntar
-                </Text>
 
-                <Text fonte="Poppins-Medium" enfase h3>
-                  {formataMoeda(currentBudget?.goal)}
-                </Text>
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
-              </View>
-            </View>
-            <View>
-              <Text style={{ textAlign: 'center', margin: 16 }} fonte="Poppins-Bold">Limite de Gastos</Text>
-
-<<<<<<< HEAD
               <View style={{ marginRight: 12, flexDirection: 'row', alignItems: 'center' }}>
                 <View style={{ width: 8, borderRadius: 3, height: 40, backgroundColor: '#5A5A63', justifyContent: 'center', marginRight: 8 }} />
                 <View>
@@ -209,38 +137,12 @@ function CardTotalHoje(props: Props) {
                     {devices.data.amountInactive} disp.
                   </Text>
                 </View>
-=======
-              <View>
-                <Text h5 style={{
-                  color: currentBudget.goal > currentBudget.salary ?
-                    indicadorNegativo
-                    : indicadorNeutro,
-                  textAlign: 'center',
-                }} fonte='Poppins-Medium'>
-                  {`Disponível ${formataMoeda(currentBudget.salary - currentBudget.goal - summary?.categories.reduce((a, p) => a + p.expenses, 0))}`}
-                </Text>
-                <Progress.Bar
-                  borderRadius={10}
-                  height={16}
-                  borderColor="#F1F2F6"
-                  color={currentBudget.goal > currentBudget.salary
-                    ? indicadorNegativo
-                    : secundaria}
-                  progress={currentBudget?.salary ? Math.abs(summary?.categories.reduce((a, p) => a + p.expenses, 0) / currentBudget?.salary) : 0}
-                  width={320}
-                />
-                <Text h6 style={{ color: indicadorNeutro, textAlign: 'center' }} fonte='Poppins-Medium'>
-                  {currentBudget?.salary > summary?.categories.reduce((a, p) => a + p.expenses, 0)
-                    ? `Previsto ${formataMoeda(summary?.categories.reduce((a, p) => a + p.expenses, 0))} de ${formataMoeda(currentBudget.salary - currentBudget.goal)}`
-                    : `Você excedeu ${formataMoeda(summary?.categories.reduce((a, p) => a + p.expenses, 0))} do seu limite de ${formataMoeda(currentBudget.salary - currentBudget.goal)}`}
-                </Text>
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
               </View>
             </View>
           </View>
         </Touchable>
       </Card>
-    </View >
+    </View>
   );
 }
 

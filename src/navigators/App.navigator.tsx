@@ -118,22 +118,6 @@ export default function AppNavigator() {
 					headerShown: false,
 				}}
 			>
-<<<<<<< HEAD
-=======
-
-				{Boolean(onboardingPreLogin) && (
-					<Stack.Screen
-						options={() => ({
-							headerShown: false,
-							headerBackTitleVisible: false,
-						})}
-						name="Onboarding"
-						component={Onboarding}
-					/>
-				)}
-
-
->>>>>>> 55c033d857d6bfbd833359408ea9b32999e31fe1
 				{!user && (
 					<>
 						<Stack.Screen
