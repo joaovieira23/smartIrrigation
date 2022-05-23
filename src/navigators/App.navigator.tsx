@@ -27,7 +27,6 @@ import CategoriesController from '../controllers/Categories.controller';
 import { AppNavigatorScreens } from './@types/App.navigator.types';
 import { useAccountCreate } from '../context/Account';
 import { RevenueCatApiResponse } from '../@types/Subscription';
-import * as SplashScreen from 'expo-splash-screen';
 import * as Updates from 'expo-updates';
 import { Alert } from 'react-native';
 
@@ -66,18 +65,6 @@ export default function AppNavigator() {
 	useEffect(() => {
 		verifyOboardingExterno();
 	}, []);
-
-	useEffect(() => {
-		if (
-			!isLoading &&
-			!isFetchingBudgets &&
-			!isFetchingCategories &&
-			SplashScreen &&
-			!isLoadingOnboarding
-		) {
-			SplashScreen.hideAsync();
-		}
-	}, [isLoading, isFetchingBudgets, isFetchingCategories, isLoadingOnboarding]);
 
 	useEffect(() => {
 		if (!isLoading && !isFetchingBudgets && !isFetchingCategories && !isLoadingOnboarding) {

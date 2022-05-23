@@ -6,13 +6,8 @@ import AppNavigator from './src/navigators/App.navigator';
 import AppProvider from './src/hooks';
 import AsyncStorage from './src/NativesAPIs/AsyncStorage';
 import DeviceInfo from './src/NativesAPIs/DeviceInfo';
-import * as SplashScreen from 'expo-splash-screen';
 
 function App() {
-	useEffect(() => {
-		SplashScreen.preventAutoHideAsync();
-	}, [])
-
 	return (
 		<MonthProvider>
 			<AccountProvider>
