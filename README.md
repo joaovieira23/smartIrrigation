@@ -41,12 +41,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React Native][rn]
 - [TypeScript][typescript]
 
-
-## 🚀 Como rodar este projeto
-
-Podemos considerar este projeto como sendo divido em três partes:
-1. Mobile (pasta mobile)
-
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
