@@ -8,12 +8,11 @@ import { useQuery } from 'react-query';
 import UserController from '../../controllers/User.controller';
 import CardMensal from '../../components/CardMensal';
 import useTheme from '../../hooks/useTheme';
-import { queryClient } from '../../hooks';
 import Header from '../../components/Header'
-import { NomeSkeleton } from './Skeleton';
 import { useMonthSelected } from '../../context/MonthSelected'
 import DropDownPicker from 'react-native-dropdown-picker';
 import BudgetController from '../../controllers/Budget.controller';
+
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function Home() {
@@ -25,6 +24,7 @@ export default function Home() {
   } = useTheme();
   const { width } = Dimensions.get('screen');
 
+  const { date } = useMonthSelected();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('');
 
@@ -63,7 +63,7 @@ export default function Home() {
         />
       </View>
 
-      <VisaoGeral dispositivo={value} titulo="Gráfico de umidade do solo" />
+      <VisaoGeral type='solo' dispositivo={value} titulo="Gráfico de umidade do solo" />
 
       <Card
         style={{
@@ -133,7 +133,7 @@ export default function Home() {
       </Card>
 
       <VisaoGeral type="ar" dispositivo={value} titulo="Gráfico de umidade do ar" />
-      <VisaoGeral type="ar" dispositivo={value} titulo="Gráfico de temperatura" />
+      <VisaoGeral type="temperatura" dispositivo={value} titulo="Gráfico de temperatura" />
 
     </ScrollView>
   )

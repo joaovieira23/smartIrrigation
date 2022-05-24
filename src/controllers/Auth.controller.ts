@@ -154,6 +154,7 @@ class AuthController {
 
 		this.updateLoggedStatus();
 
+
 		return;
 	}
 

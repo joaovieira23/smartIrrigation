@@ -3,6 +3,7 @@ import { Dimensions, View } from 'react-native';
 import Card from '../../components/Card';
 import Text from '../../components/Text';
 import { useQuery } from 'react-query';
+import { format } from 'date-fns';
 import { useMonthSelected } from '../../context/MonthSelected';
 import SummaryController from '../../controllers/Summary.controller'
 import Placeholder from '../../components/Placeholder';
@@ -70,15 +71,18 @@ function CardTotalHojeSkeleton() {
 function CardTotalHoje(props: Props) {
 	const { type, titulo, dispositivo } = props;
 	const { date } = useMonthSelected();
+	console.warn('date', format(date, 'MM'))
 	const [isLoadingMonth, setIsLoadingMonth] = useState(false);
 
 	const { data: meterings, isLoading: isLoadingMeterings, refetch: refetchMeterings } = useQuery(['solil-humidity', { device_id: dispositivo }], async () => {
-		const data = await SummaryController.getSummary({ month: '04', type: 'soil', dispositivo });
+		const data = await SummaryController.getSummary({ month: format(date, 'MM'), type: 'soil', dispositivo });
 		return data;
 	});
 
+	console.warn('solil-humidity', meterings);
+
 	const { data: meteringsAir, isLoading: isLoadingAir, refetch: refetchMeteringsAir } = useQuery(['air-humidity', { device_id: dispositivo }], async () => {
-		const data = await SummaryController.getSummary({ month: '04', type: 'air', dispositivo });
+		const data = await SummaryController.getSummary({ month: format(date, 'MM'), type: 'air', dispositivo });
 		return data;
 	});
 

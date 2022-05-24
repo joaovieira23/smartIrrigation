@@ -32,8 +32,7 @@ export default function ModalDefinirOrcamento(props: IPropsModalOrcamento) {
     },
   } = useTheme();
 
-  console.warn('prprpap', props.device.last_metering)
-  const dataF = props.device.last_metering.time_instant.split('-')
+  const dataF = props?.device?.last_metering?.time_instant.split('-')
 
   return (
     <>
@@ -60,7 +59,7 @@ export default function ModalDefinirOrcamento(props: IPropsModalOrcamento) {
                 Dispositivo:
               </Text>
               <Text h3 fonte="Montserrat-Bold" style={{ color: '#000000', paddingVertical: 12, paddingHorizontal: 4 }}>
-                {props.device.name}
+                {props?.device?.name}
               </Text>
             </View>
 
@@ -69,7 +68,7 @@ export default function ModalDefinirOrcamento(props: IPropsModalOrcamento) {
                 Última medição:
               </Text>
               <Text h3 fonte="Montserrat-Bold" style={{ color: '#000000', paddingVertical: 12, paddingHorizontal: 4 }}>
-                {!props.device.last_metering ? 'Sem medição' : `${dataF[0]}/${dataF[1]}/2022`}
+                {!props?.device?.last_metering ? 'Sem medição' : `${dataF[0]}/${dataF[1]}/2022`}
               </Text>
             </View>
 
@@ -78,7 +77,7 @@ export default function ModalDefinirOrcamento(props: IPropsModalOrcamento) {
                 Umidade do solo:
               </Text>
               <Text h3 fonte="Montserrat-Bold" style={{ color: '#000000', paddingVertical: 12, paddingHorizontal: 4 }}>
-                {!props.device.last_metering ? 'Sem medição' : props.device.last_metering.humidity_soil}
+                {!props?.device?.last_metering ? 'Sem medição' : props?.device?.last_metering?.humidity_soil}
               </Text>
             </View>
 
@@ -87,7 +86,7 @@ export default function ModalDefinirOrcamento(props: IPropsModalOrcamento) {
                 Umidade do ar
               </Text>
               <Text h3 fonte="Montserrat-Bold" style={{ color: '#000000', paddingVertical: 12, paddingHorizontal: 4 }}>
-                {!props.device.last_metering ? 'Sem medição' : props.device.last_metering.humidity}
+                {!props?.device?.last_metering ? 'Sem medição' : props?.device?.last_metering?.humidity}
               </Text>
             </View>
 
@@ -96,7 +95,7 @@ export default function ModalDefinirOrcamento(props: IPropsModalOrcamento) {
                 Temperatura do ar:
               </Text>
               <Text h3 fonte="Montserrat-Bold" style={{ color: '#000000', paddingVertical: 12, paddingHorizontal: 4 }}>
-                {!props.device.last_metering ? 'Sem medição' : props.device.last_metering.temperature}
+                {!props?.device?.last_metering ? 'Sem medição' : props?.device?.last_metering?.temperature}
               </Text>
             </View>
 
@@ -105,7 +104,7 @@ export default function ModalDefinirOrcamento(props: IPropsModalOrcamento) {
                 Status
               </Text>
               <Text h3 fonte="Montserrat-Bold" style={{ color: '#000000', paddingVertical: 12, paddingHorizontal: 4 }}>
-                {props.device.active ? 'Ativo' : 'Inativo'}
+                {props?.device?.active ? 'Ativo' : 'Inativo'}
               </Text>
             </View>
 

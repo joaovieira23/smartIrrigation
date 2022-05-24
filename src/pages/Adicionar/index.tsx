@@ -15,12 +15,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview'
 export default function Adicionar() {
   const [loading, setLoading] = useState(false);
 
-  const {
-    cores: {
-      input: { erro }
-    },
-  } = useTheme();
-
   const deviceName = useFormField({
     defaultValue: '',
     validate: v => v.length > 1,
@@ -30,10 +24,6 @@ export default function Adicionar() {
     defaultValue: '',
     validate: v => v.length > 1,
   });
-
-  const { data: budgets } = useQuery('budgets', BudgetController.getBudgets);
-
-  const currentBudget = budgets?.length ? budgets[0] : null;
 
   const mutation = useMutation(
     async () => {
@@ -49,9 +39,7 @@ export default function Adicionar() {
       onSuccess: (res) => {
         Alert.alert('Sucesso', 'Device cadastrado com sucesso!')
         queryClient.invalidateQueries('devices');
-
-        //@ts-ignore
-        queryClient.setQueryData('devices', (data) => [...data, res])
+        // queryClient.setQueryData('devices', (data) => [...data, res])
       },
     }
   );

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Dimensions } from 'react-native';
 import Text from '../../components/Text';
-import { VictoryGroup, VictoryLine, VictoryChart, VictoryAxis } from 'victory-native';
+import { VictoryGroup, VictoryLine, VictoryChart } from 'victory-native';
 import moment from 'moment';
+import { useMonthSelected } from '../../context/MonthSelected'
 import useTheme from '../../hooks/useTheme';
-import Touchable from '../../components/Touchable';
 
 interface Props {
   loading?: boolean;
@@ -27,8 +27,8 @@ export default function Grafico(props: Props) {
 
   if ((!grafico || Object.keys(grafico).length <= 2) && !loading) {
     return (
-      <View style={{ height: 120, marginLeft: 46, alignItems: 'center', justifyContent: 'center' }}>
-        <Text fonte='Poppins-Bold' subtexto>Ainda não há dados de umidade</Text>
+      <View style={{ height: 120, marginLeft: 32, alignItems: 'center', justifyContent: 'center' }}>
+        <Text fonte='Poppins-Bold' subtexto>Ainda não há dados para esse gráfico</Text>
       </View>
     );
   }

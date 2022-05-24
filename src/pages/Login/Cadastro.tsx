@@ -75,11 +75,12 @@ export default function Cadastro() {
 
       await AuthController.createAccount(data);
 
+      Alert.alert('Sucesso', 'Conta criada com sucesso');
+
       setLoading(false)
       setCreateAccount(true);
 
     } catch (err) {
-      console.warn('err', err)
       setLoading(false);
       if (err instanceof Yup.ValidationError) {
         getValidationErrors(err);

@@ -92,6 +92,7 @@ export default function Perfil({ goBack }: { goBack: () => void }) {
 			{
 				text: 'Sim',
 				onPress: () => {
+					navigation.navigate('Welcome' as never);
 					AuthController.logout()
 				},
 			},
@@ -104,7 +105,6 @@ export default function Perfil({ goBack }: { goBack: () => void }) {
 				style={{
 					borderTopLeftRadius: 10,
 					borderTopRightRadius: 10,
-					flex: 1,
 					backgroundColor: 'transparent',
 				}}
 			>
@@ -117,46 +117,23 @@ export default function Perfil({ goBack }: { goBack: () => void }) {
 						width: '100%',
 					}}
 				>
-
-					<View
-						style={{
-							flex: 1,
-							flexDirection: 'column',
-							alignItems: 'center',
-							justifyContent: 'center',
-							paddingTop: top,
-						}}
-					>
-						<View
-							style={{
-								marginTop: 32,
-								alignItems: 'center',
-								justifyContent: 'flex-start',
-							}}
-						>
-							<Touchable onPress={() => navigation.goBack()}>
-								<Icon style={{ display: 'flex', marginRight: 8, alignSelf: 'flex-end' }} name="close" size={32} />
-							</Touchable>
-							<View style={{ display: 'flex', flexDirection: 'row', marginTop: 32, alignItems: 'center', justifyContent: 'center' }}>
-								<Image source={require('../../assets/Imagens/Vector.png')} />
-								<View style={{ marginLeft: 24 }}>
-									<Text h2 fonte='Poppins-Medium' style={{ color: secundaria }} >{user?.name}</Text>
-									<Text h3 fonte='Poppins-Medium'>{user?.email}</Text>
-								</View>
-							</View>
-						</View>
+				<View>
+					<Text fonte='Poppins-Bold' >App desenvolvido por:</Text>
+					<Text fonte='Montserrat-Medium'>João Victor Vieira de Andrade - RA: 082170018	</Text>
+					<Text fonte='Montserrat-Medium'>Eduardo Alves Leonardo - RA: 082170006</Text>
+					<Text fonte='Montserrat-Medium'>Jonathan Citolino - RA: 082170019</Text>
+					<Text fonte='Montserrat-Medium'>William Stófel da Mota - RA: 082170033</Text>
 					</View>
+
+
 				</View>
 
-				<ScrollView style={{ flex: 1 }}>
-					<ItemMenu icon="account-outline" onPress={() => navigation.navigate('Perfil Interno' as never, {} as never)}>
-						Perfil
-					</ItemMenu>
-					<ItemMenu negativo icon="exit-to-app" onPress={() => logoutUser()}>
+			</View>
+			<View style={{ marginTop: 324 }}>
+			<ItemMenu negativo icon="exit-to-app" onPress={() => logoutUser()}>
 						Sair
 					</ItemMenu>
-				</ScrollView>
-			</View>
+					</View>
 		</Screen>
 	);
 }
