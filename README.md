@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="NextLevelWeek" title="#NextLevelWeek" src="https://github.com/joaovieira23/ecoleta/blob/master/capa-ecoleta.png" />
+    <img alt="NextLevelWeek" title="#NextLevelWeek" src="https://github.com/joaovieira23/smartIrrigation/blob/master/capa.jpeg" />
 </h1>
 
 ## 💻 Sobre o projeto
@@ -22,18 +22,13 @@ Projeto desenvolvido durante o curso de **Engenharia da computação** oferecido
 
 O layout da aplicação:
 
-<img alt="Made by joao-vieira" src="![WhatsApp Image 2022-05-23 at 08 19 46](https://user-images.githubusercontent.com/45154356/169828693-367e3d72-c9a3-4d39-bc33-00b4f417aae3.jpeg)">
-<img alt="Made by joao-vieira" src="![WhatsApp Image 2022-05-23 at 08 19 40](https://user-images.githubusercontent.com/45154356/169828765-662b304e-633a-4ec8-9f17-8ba13936b639.jpeg)">
-<img alt="Made by joao-vieira" src="![WhatsApp Image 2022-05-23 at 08 19 35](https://user-images.githubusercontent.com/45154356/169828912-feb8a3a2-d2b4-4d0c-bd7f-57a01d7370fb.jpeg)">
+<img alt="Made by joao-vieira" src="https://github.com/joaovieira23/smartIrrigation/blob/master/print-1.jpeg">
+<img alt="Made by joao-vieira" src="https://github.com/joaovieira23/smartIrrigation/blob/master/print-2.jpeg">
 
 ## 🔋 Mobile
 
 <p align="center">
-  <img alt="App Demo" src="https://github.com/joaovieira23/ecoleta/blob/master/ecoleta-gifs/ecoleta-mobile.gif">
-</p>
-
-<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="App Demo" src="![WhatsApp-Video-2022-05-10-at-14 17 23](https://user-images.githubusercontent.com/45154356/169829500-f53a752d-7aac-4d87-92a5-2233ec635d81.gif)">
+  <img alt="App Demo" src="https://github.com/joaovieira23/smartIrrigation/blob/master/video-demonstrativo.gif">
 </p>
 
 ## 🛠 Tecnologias
@@ -45,12 +40,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React][reactjs]
 - [React Native][rn]
 - [TypeScript][typescript]
-
-
-## 🚀 Como rodar este projeto
-
-Podemos considerar este projeto como sendo divido em três partes:
-1. Mobile (pasta mobile)
 
 ### Pré-requisitos
 
